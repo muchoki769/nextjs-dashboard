@@ -3,11 +3,11 @@
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  user: 'postgres',
-  password: 'Muchoki7691',
+  user: '',
+  password: '',
   host: 'localhost',
-  port: 5432,
-  database: 'nextjs'
+  port: ,
+  database: ''
 });
 
 import {
@@ -20,7 +20,6 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-  // const sql = postgres(process.env.DATABASE_URL="postgresql://postgres:<Muchoki7691>@localhost:5432/nextjs"); // Use your PostgreSQL connection string
 
 
 
