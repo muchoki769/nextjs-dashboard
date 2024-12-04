@@ -3,11 +3,11 @@
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  user: '',
-  password: '',
+  user: 'postgres',
+  password: 'Muchoki7691',
   host: 'localhost',
   port: 5432,
-  database: ''
+  database: 'nextjs'
 });
 
 import {
