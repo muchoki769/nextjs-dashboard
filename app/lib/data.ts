@@ -1,14 +1,21 @@
 //  import { sql } from '@vercel/postgres';
-// import postgres from 'postgres';
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
 
-const pool = new Pool({
-  user: 'postgres',
-  password: 'Muchoki7691',
-  host: 'localhost',
-  port: 5432,
-  database: 'nextjs'
-});
+
+import { pool } from 'dbConfig';
+// export default ({
+//   dbCredentials: {
+//     connectionString: process.env.DATABASE_URL!,
+//   },
+// });
+
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+// });
+
+
+
+
 
 import {
   CustomerField,
@@ -20,9 +27,6 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-  // const sql = postgres(process.env.DATABASE_URL="postgresql://postgres:<Muchoki7691>@localhost:5432/nextjs"); // Use your PostgreSQL connection string
-
-
 
 
 export async function fetchRevenue() {
@@ -30,12 +34,12 @@ export async function fetchRevenue() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // console.log('Fetching revenue data...');
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await pool.query(`SELECT * FROM revenue`);
 
-     console.log('Data fetch completed after 3 seconds.');
+    //  console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -173,7 +177,8 @@ export async function fetchInvoiceById(id: string) {
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
-
+    
+    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -231,3 +236,8 @@ export async function fetchFilteredCustomers(query: string) {
     throw new Error('Failed to fetch customer table.');
   }
 }
+
+function defineConfig(arg0: { dbCredentials: { connectionString: string; }; }) {
+  throw new Error('Function not implemented.');
+}
+

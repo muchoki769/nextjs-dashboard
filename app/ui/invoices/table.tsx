@@ -74,6 +74,7 @@ export default async function InvoicesTable({
                 </th>
                 <th scope="col" className="relative py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
+                  
                 </th>
               </tr>
             </thead>
