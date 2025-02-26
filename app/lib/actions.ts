@@ -7,6 +7,8 @@ import {revalidatePath} from 'next/cache';//clearing the cache and trigger a new
 import {redirect} from 'next/navigation';
 import {signIn} from '@/auth';
 import {AuthError} from 'next-auth';
+
+
 // import './envConfig.ts';
 
 // export default ({
@@ -238,3 +240,12 @@ export type State = {
       throw error;
     }
   }
+
+  export async function registerUser(
+    prevState: string | undefined,
+    formData: FormData
+  ) {
+    return await registerUser(prevState, formData);
+  
+}
+  

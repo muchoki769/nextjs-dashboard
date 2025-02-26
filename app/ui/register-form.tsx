@@ -9,24 +9,25 @@ import {
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useActionState } from 'react';
-import {authenticate} from '@/app/lib/actions';
+import { registerUser } from '@/app/lib/actions';
 import { useSearchParams,useRouter } from 'next/navigation';
-import {signIn} from "next-auth/react";
+import { signIn } from 'next-auth/react';
 
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
-  const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
-    undefined,
-  );
-  return (
+   const router = useRouter();
+   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+   const [errorMessage, formAction, isPending] = useActionState(
+     registerUser,
+     undefined,
+   );
+
+   return (
     <form action= {formAction} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Please log in to continue.
+          Create An Account
         </h1>
         <div className="w-full">
           <div>
@@ -71,21 +72,17 @@ export default function LoginForm() {
         </div>
         <input type="hidden" name="redirectTo" value={callbackUrl} />
         <Button className="mt-4 w-full" aria-disabled={isPending}>
-          Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+          Sign Up <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
-        <Button  className="mt-2 w-full"   onClick={() => router.push("/register")}
-          type="button"
-          >
-        Register
-      </Button>
+    
       
-      {/* <Button
+      <Button
       className="mt-2 w-full flex items-center justify-center border border-gray-300 text-gray-700 hover:bg-gray-100"
       onClick={() => signIn("google")}
        >
         <img src="/google-logo.png" alt="Google" className="h-5 w-5 mr-2" />
        Sign in with Google
-       </Button> */}
+       </Button>
  
         <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
           {/* Add form errors here */errorMessage && (
@@ -96,8 +93,16 @@ export default function LoginForm() {
             </>
           )}
         </div>
+
+        <p className="mt-3 text-sm text-gray-700">
+          Already have an account?{' '}
+          <span className="text-blue-600 cursor-pointer" onClick={() => router.push('/login')}>
+            Log in
+          </span>
+        </p>
       </div>
     
     </form>
   );
 }
+
