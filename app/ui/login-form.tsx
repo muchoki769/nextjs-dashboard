@@ -10,7 +10,7 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useActionState } from 'react';
 import {authenticate} from '@/app/lib/actions';
-import { useSearchParams,useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 // import {signIn} from "next-auth/react";
 
 

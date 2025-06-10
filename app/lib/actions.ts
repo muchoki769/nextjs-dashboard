@@ -171,6 +171,7 @@ export type State = {
         VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
       `;
     } catch (error) {
+       console.error('Create Invoice Error:', error);
       // If a database error occurs, return a more specific error.
       return {
         error: 'Database Error: Failed to Create Invoice.',
@@ -211,7 +212,7 @@ export type State = {
         WHERE id = ${id}
       `;
     } catch (error) {
-      
+       console.error('Updating Invoice Error:', error);
       return {
         error:'Database Error: Failed to Update Invoice.',
          message: 'Database Error: Failed to Update Invoice.' };
@@ -245,11 +246,11 @@ export type State = {
     }
   }
 
-  export async function registerUser(
-    prevState: string | undefined,
-    formData: FormData
-  ) {
-    return await registerUser(prevState, formData);
+//   export async function registerUser(
+//     prevState: string | undefined,
+//     formData: FormData
+//   ) {
+//     return await registerUser(prevState, formData);
   
-}
+// }
   
