@@ -3,6 +3,7 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
 import {inter} from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 export const metadata:Metadata = {

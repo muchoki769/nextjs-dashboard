@@ -73,11 +73,11 @@ export default function LoginForm() {
         <Button className="mt-4 w-full" aria-disabled={isPending}>
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
-        <Button  className="mt-2 w-full"   onClick={() => router.push("/register")}
+        {/* <Button  className="mt-2 w-full"   onClick={() => router.push("/register")}
           type="button"
           >
         Register
-      </Button>
+      </Button> */}
       
       {/* <Button
       className="mt-2 w-full flex items-center justify-center border border-gray-300 text-gray-700 hover:bg-gray-100"
