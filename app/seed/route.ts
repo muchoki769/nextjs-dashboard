@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt';
-import { db } from '@vercel/postgres';
+// import { db } from '@vercel/postgres';
 import postgres from 'postgres';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
 // import { create } from 'domain';
-const client = await db.connect();
+// const client = await db.connect();
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -107,7 +107,8 @@ async function seedRevenue() {
 
 export async function GET() {
   try {
-    const result = await sql.begin((sql) => [
+    // const result = 
+    await sql.begin((sql) => [
       seedUsers(),
       seedCustomers(),
       seedInvoices(),

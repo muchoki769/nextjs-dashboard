@@ -2,7 +2,7 @@
 import {z} from 'zod'; //helps in form validation
 // import { Pool } from 'pg';
 import postgres from 'postgres';
-import { pool } from 'dbConfig';
+// import { pool } from 'dbConfig';
 import {revalidatePath} from 'next/cache';//clearing the cache and trigger a new request to the server
 import {redirect} from 'next/navigation';
 import {signIn} from '@/auth';
@@ -173,6 +173,7 @@ export type State = {
     } catch (error) {
       // If a database error occurs, return a more specific error.
       return {
+        error: 'Database Error: Failed to Create Invoice.',
         message: 'Database Error: Failed to Create Invoice.',
       };
     }
@@ -210,7 +211,10 @@ export type State = {
         WHERE id = ${id}
       `;
     } catch (error) {
-      return { message: 'Database Error: Failed to Update Invoice.' };
+      
+      return {
+        error:'Database Error: Failed to Update Invoice.',
+         message: 'Database Error: Failed to Update Invoice.' };
     }
   
     revalidatePath('/dashboard/invoices');

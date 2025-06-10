@@ -1,3 +1,14 @@
+import CustomersTable from "@/app/ui/customers/table";
+
 export default function customers() {
-    return <p>Customers Page</p>;
+    return(
+       <div>
+          <p>Customers Page</p>
+          <CustomersTable customers={[
+        
+          ]}/>
+ 
+
+    </div>
+) 
 }
