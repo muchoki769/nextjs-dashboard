@@ -4,7 +4,7 @@ import Credentials from 'next-auth/providers/credentials';
 // import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google";
 import {z} from 'zod';
-import { pool } from 'dbConfig';
+// import { pool } from 'dbConfig';
 import postgres from 'postgres';
 import type {User} from '@/app/lib/definitions';
 import bcrypt from 'bcrypt';
